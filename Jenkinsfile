@@ -10,6 +10,11 @@ pipeline {
                  '''
              }
          }
+   stage('Lint HTML') {
+              steps {
+                  sh 'tidy -q -e *.html'
+              }
+         }
 stage('Upload to AWS') {
               steps {
                   withAWS(region:'us-east-1',credentials:'0ce8e502-d225-4c20-b721-8f34c699d7c9') {
